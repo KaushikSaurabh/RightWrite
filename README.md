@@ -30,7 +30,7 @@ that path). Claude Code picks up the skill automatically once `SKILL.md`'s front
 in place.
 
 ```
-git clone https://github.com/KaushikSaurabh/web-practice-skill.git ~/.claude/skills/web-practice
+git clone https://github.com/KaushikSaurabh/RightWrite.git ~/.claude/skills/web-practice
 ```
 
 ## Toolkit scripts
