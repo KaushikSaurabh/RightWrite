@@ -35,11 +35,17 @@ git clone https://github.com/KaushikSaurabh/RightWrite.git ~/.claude/skills/web-
 
 ## Toolkit scripts
 
-`writing/craft.md` references two small stdlib Python scripts (`ai_tell_lint.py`,
-`similarity_check.py`) meant to live in a `tools/` directory alongside this skill. They
-aren't bundled in this repo yet — the rules are written so the skill still works without
-them (see craft.md's "if ai_tell_lint.py isn't reachable" fallback), but a real lint pass
-needs the actual scripts. Open an issue or a PR if you build/port one.
+`writing/craft.md` references two small stdlib Python scripts meant to live in a `tools/`
+directory alongside this skill:
+
+- `tools/ai_tell_lint.py` — bundled. Stdlib-only (falls back to `xml.etree` if
+  `defusedxml` isn't installed), works standalone against a `.md` or `.docx` file, no
+  network. Ported from a real project's vendored copy after a real crash fix (a
+  zero-sentence input, e.g. a one-word reply, threw `StatisticsError` on
+  `statistics.mean([])` - now falls back to `0` for that field instead).
+- `tools/similarity_check.py` — not yet built. The rules are written so the skill still
+  works without it (see craft.md's "if ai_tell_lint.py isn't reachable" fallback), but a
+  real similarity pass needs the actual script. Open an issue or a PR if you build one.
 
 ## Why this exists
 
